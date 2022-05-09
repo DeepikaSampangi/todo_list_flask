@@ -1,9 +1,6 @@
 import os
-from flask import Flask, request, render_template, url_for, redirect
+from flask import Flask, request, render_template, redirect
 from firebase_admin import credentials, firestore, initialize_app
-import base64
-import json
-
 
 # Initialize Flask App
 app = Flask(__name__)
@@ -13,6 +10,7 @@ cred = credentials.Certificate("key.json")
 default_app = initialize_app(cred)
 db = firestore.client()
 todo_ref = db.collection('todos')
+
 
 @app.route('/', methods=["GET", "POST"])
 def index():
