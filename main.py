@@ -9,7 +9,7 @@ import json
 app = Flask(__name__)
 
 # Initialize Firestore DB
-cred = credentials.Certificate("src/key.json")
+cred = credentials.Certificate("key.json")
 default_app = initialize_app(cred)
 db = firestore.client()
 todo_ref = db.collection('todos')
