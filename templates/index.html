@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
-    <style>
-        tr {border-bottom: 1px solid #ddd;}
-    </style>
+
 </head>
 <body>
 <div align="center">
@@ -22,7 +20,7 @@
             {% if todos | length < 1 %}
             <h4 style="text-align: center">You have on tasks! 🎉</h4>
             {% else %}
-            <table class="table table-striped text-center">
+            <table class="table table-striped text-center" cellspacing="5" cellpadding="5" border="1">
                 <thead>
                 <tr>
                     <th>Task</th>
