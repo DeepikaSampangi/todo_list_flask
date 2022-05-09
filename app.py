@@ -18,7 +18,7 @@ todo_ref = db.collection('todos')
 def index():
     if request.method =='POST':
         try:
-            todo_ref.add({'task': request.form['task', 'complete': False]})
+            todo_ref.add({'task': request.form['task'], 'complete': False})
             return redirect('/')
         except:
             return 'There was an issue adding your task'
@@ -45,6 +45,6 @@ def complete(id):
         return 'There was an issue updating your task'
 
 
-# if __name__ == '__main__':
-#     port = int(os.environ.get('PORT', 8080))
-#     app.run(host="0.0.0.0", port=port)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host="0.0.0.0", port=port, debug=True)

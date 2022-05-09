@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
+    <style>
+        tr {border-bottom: 1px solid #ddd;}
+    </style>
 </head>
 <body>
+<div align="center">
+    <h1>Todo List</h1>
+    <div>
+        <form action="{{ url_for('index') }}" method="POST">
+            <input type="text" name="task">
+            <input type="submit" value="Add Item" class="button" style="background:#3630a3;color:white;">
+        </form>
+    </div>
+<br><br>
     <div class="row">
         <div class="col">
             {% if todos | length < 1 %}
@@ -23,14 +35,18 @@
                     <td>{{ todo.task }}</td>
                     {% if todo.completed %}
                     <td>🏁</td>
+                    <td>🗑</td>
+
                     {% else %}
                     <td>❌</td>
+                    <td>✔<br>🗑</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
             </table>
             {% endif %}
         </div>
+    </div>
     </div>
 </body>
 </html>
