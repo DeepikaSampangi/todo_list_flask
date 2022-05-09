@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+            {% if todos | length < 1 %}
+            <h4 style="text-align: center">You have on tasks! 🎉</h4>
+            {% else %}
+            <table class="table table-striped text-center">
+                <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Completed</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                {% for todo in todos %}
+                <tr>
+                    <td>{{ todo.task }}</td>
+                    {% if todo.completed %}
+                    <td>🏁</td>
+                    {% else %}
+                    <td>❌</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
