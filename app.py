@@ -34,14 +34,6 @@ def index():
             return 'There was an issue loading your todos'
 
 
-@app.route('/complete/<id>')
-def complete(id):
-    try:
-        todo_ref.document(id).update({'completed': True})
-        return redirect('/')
-    except:
-        return 'There was an issue updating your task'
-
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
